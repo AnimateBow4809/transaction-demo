@@ -5,7 +5,7 @@ import animate.bow.transactiondemo.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface StudentRepo extends JpaRepository<Long, Student> {
+public interface StudentRepo extends JpaRepository<Student,Long> {
 
     @Query("UPDATE Student s set s.name=:name where s.id=:id")
     public void updateNameById(Long id,String name);
