@@ -60,7 +60,7 @@ public class StudentServiceImpl implements StudentService {
     /*
         requires a transaction
      */
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     @Override
     public void updateEveryThingById(Long id, String name, String lastName, String phoneNumber) {
         updateNameById(id, name);
