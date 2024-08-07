@@ -13,5 +13,7 @@ public interface StudentService {
 
     public void updateEveryThingById(Long id,String name,String lastName,String phoneNumber);
 
+    Student findStudentById(Long id);
+
     public void save(Student student);
 }

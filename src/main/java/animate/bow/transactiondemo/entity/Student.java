@@ -1,15 +1,18 @@
 package animate.bow.transactiondemo.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 
 @Data
 @Entity
 @Table(name = "student")
+@AllArgsConstructor
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -22,4 +25,9 @@ public class Student {
 
     @Column(name = "phone_number",nullable = false,columnDefinition = "varchar2(255)")
     private String phoneNumber;
+
+
+    public Student() {
+
+    }
 }
