@@ -24,7 +24,9 @@ class TransactionDemoApplicationTests {
 
     @Autowired
     StudentService service;
-
+    /*
+        This test aims to rollback from an invalid lastname change
+     */
     @Test
     void rollbackFromLastName() {
         service.save(new Student(2L,"ali","dd","0910"));
@@ -34,6 +36,9 @@ class TransactionDemoApplicationTests {
         Assert.assertEquals(service.findStudentById(2L),new Student(2L,"ali","dd","0910"));
     }
 
+    /*
+        This test aims to rollback from an invalid name change
+     */
     @Test
     void rollbackFromName() {
         service.save(new Student(2L,"ali","dd","0910"));
@@ -43,6 +48,9 @@ class TransactionDemoApplicationTests {
         Assert.assertEquals(service.findStudentById(2L),new Student(2L,"ali","dd","0910"));
     }
 
+    /*
+        This test aims to rollback from an invalid phone number change
+     */
     @Test
     void rollbackFromPhoneNumber() {
         service.save(new Student(2L,"ali","dd","0910"));
@@ -52,6 +60,9 @@ class TransactionDemoApplicationTests {
         Assert.assertEquals(service.findStudentById(2L),new Student(2L,"ali","dd","0910"));
     }
 
+    /*
+        This test aims to show a valid transaction
+     */
     @Test
     void noRollback() {
         service.save(new Student(2L,"ali","dd","0910"));

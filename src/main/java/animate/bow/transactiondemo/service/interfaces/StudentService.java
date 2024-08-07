@@ -3,6 +3,9 @@ package animate.bow.transactiondemo.service.interfaces;
 import animate.bow.transactiondemo.entity.Student;
 import org.springframework.data.jpa.repository.Query;
 
+/*
+    interface for student service later to be implemented
+ */
 public interface StudentService {
 
     public void updateNameById(Long id,String name);

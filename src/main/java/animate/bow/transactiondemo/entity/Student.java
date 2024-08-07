@@ -6,6 +6,11 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 
+/*
+    Student Class
+    no fields are null
+ */
+
 @Data
 @Entity
 @Table(name = "student")
@@ -18,7 +23,6 @@ public class Student {
 
     @Column(name = "name",nullable = false,columnDefinition = "varchar2(255)")
     private String name;
-
 
     @Column(name = "last_name",nullable = false,columnDefinition = "varchar2(255)")
     private String lastName;

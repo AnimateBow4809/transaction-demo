@@ -15,6 +15,9 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepo repo;
 
+    /*
+        uses the transaction obtained from parent
+     */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     @Override
     public void updateNameById(Long id, String name) {
@@ -26,6 +29,9 @@ public class StudentServiceImpl implements StudentService {
         }
     }
 
+    /*
+        uses the transaction obtained from parent
+     */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     @Override
     public void updateLastNameById(Long id, String lastName) {
@@ -37,6 +43,9 @@ public class StudentServiceImpl implements StudentService {
         }
     }
 
+    /*
+        uses the transaction obtained from parent
+     */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     @Override
     public void updatePhoneNumberById(Long id, String phoneNumber) {
@@ -48,6 +57,9 @@ public class StudentServiceImpl implements StudentService {
         }
     }
 
+    /*
+        requires a transaction
+     */
     @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     @Override
     public void updateEveryThingById(Long id, String name, String lastName, String phoneNumber) {
@@ -56,11 +68,16 @@ public class StudentServiceImpl implements StudentService {
         updatePhoneNumberById(id, phoneNumber);
     }
 
+    /*
+        find student by id
+     */
     @Override
     public Student findStudentById(Long id){
         return repo.findById(id).orElseThrow();
     }
-
+    /*
+        save student
+     */
     @Override
     public void save(Student student) {
         repo.save(student);
